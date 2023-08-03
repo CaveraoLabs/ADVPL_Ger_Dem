@@ -99,16 +99,12 @@ Static Function ArquivosZ01( cOperacao )
 
 		cFileIn := cGetFile( cFileType , 'Selecione o arquivo', 0, cCliDir )  //Tela de seleção de arquivo para envio
 		If cFileIn != ""
-			FWMsgRun(, {|| CpyT2S( cFileIn ,cSrvDir ) }, cCadastro, Capital("Enviando arquivo " + cFileExt + "...") ) //Upload do arquivo para o servidor
-
-			//Separar o nome do arquivo do resto
-			SplitPath(cFileIn,,,cFileIn)
-
-			If FRename( cSrvDir + cFileIn + cFileExt, cSrvDir + cValToChar(Z01->Z01_NUM) + '¬' + cFileIn + cFileExt ) == 0
-				MsgAlert("Arquivo enviado com sucesso!")
-			Else
-				MsgStop("Erro ao anexar arquivo ao registro!")
+			// Cria o diretório para anexo ao registro no servidor
+			If !ExistDir( cSrvDir + cValToChar(Z01->Z01_NUM) + "\" )
+				MakeDir( cSrvDir + cValToChar(Z01->Z01_NUM) + "\" )
 			EndIf
+			FWMsgRun(, {|| CpyT2S( cFileIn , cSrvDir + cValToChar(Z01->Z01_NUM) + "\" ) }, cCadastro, Capital("Enviando arquivo " + cFileIn + "...") ) //Upload do arquivo para o servidor
+			MsgAlert("Arquivo enviado com sucesso!")
 		EndIf
 
 	ElseIf cOperacao == "LER"
