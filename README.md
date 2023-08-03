@@ -31,8 +31,9 @@ Parâmetros:
 
 # Validações Adicionadas
 Campos:
-Z01_DTFIM: Não pode ser maior que o Z01_DTINI
-Z01_QTDHR: Tem que ser maior que zero
+* Z01_DTINI: Se o parâmetro MV_Z01_DMV estiver habilitado, a data inicial pode ser somente do mês vigente.
+* Z01_DTFIM: Não pode ser maior que o Z01_DTINI
+* Z01_QTDHR: Tem que ser maior que zero
 
 # "Facilitadores" Adicionados
 Ao incluir uma nova demanda, preencher automaticamente por padrão:
