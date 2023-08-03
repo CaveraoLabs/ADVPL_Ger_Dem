@@ -1,0 +1,3 @@
+X7_CAMPO;X7_SEQUENC;X7_REGRA;X7_CDOMIN;X7_TIPO;X7_SEEK;X7_ALIAS;X7_ORDEM;X7_CHAVE;X7_CONDIC;X7_PROPRI;D_E_L_E_T_;R_E_C_N_O_;R_E_C_D_E_L_
+Z01_REQUE ;1;UsrFullName(M->Z01_REQUE)                                                                           ;Z01_NOMREQ;P;N;   ;0;                                                                                                    ;                                        ;U; ;14871;0
+Z01_RESP  ;1;UsrFullName(M->Z01_RESP)                                                                            ;Z01_NOMRES;P;N;   ;0;                                                                                                    ;                                        ;U; ;14870;0
