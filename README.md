@@ -14,20 +14,20 @@ Uma tela customizada no ERP Protheus para gerenciamento de demandas.
 
 # Tabelas, Campos e Parâmetros Envolvidos
 Z01 - Gerenciamento de Demandas:
-    Z01_NUM     -> Número da demanda
-    Z01_STATUS  -> Status da demanda
-    Z01_TITULO  -> Título da demanda
-    Z01_RESP    -> Responsável pela demanda
-    Z01_NOMRES  -> (Virtual) Nome do responsável
-    Z01_REQUE   -> Requerente
-    Z01_NOMREQ  -> (Virtual) Nome do requerente
-    Z01_DTINI   -> Data de início
-    Z01_DTFIM   -> Data de finalização
-    Z01_QTDHR   -> Quantidade de horas necessárias para atender a essa demanda.
-    Z01_DESC    -> Descrição da demanda
+-    Z01_NUM     -> Número da demanda
+-    Z01_STATUS  -> Status da demanda
+-    Z01_TITULO  -> Título da demanda
+-    Z01_RESP    -> Responsável pela demanda
+-    Z01_NOMRES  -> (Virtual) Nome do responsável
+-    Z01_REQUE   -> Requerente
+-    Z01_NOMREQ  -> (Virtual) Nome do requerente
+-    Z01_DTINI   -> Data de início
+-    Z01_DTFIM   -> Data de finalização
+-    Z01_QTDHR   -> Quantidade de horas necessárias para atender a essa demanda.
+-    Z01_DESC    -> Descrição da demanda
 
 Parâmetros:
-MV_Z01_DMV - Demandas somente no Mês Vigente? - Bool
+- MV_Z01_DMV - Demandas somente no Mês Vigente? - Bool
 
 # Validações Adicionadas
 Campos:
