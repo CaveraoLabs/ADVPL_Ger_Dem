@@ -81,7 +81,6 @@ Static Function ArquivosZ01( cOperacao )
 	Local cFileType	:= "Acrobat PDF |*.pdf|"
 	Local cFileExt	:= ".pdf"
 	Local cFileIn 	:= ""
-	Local cFileOut	:= ""
 	Local aAreaAnt 	:= GetArea()
 
 	// Cria o diretório na máquina cliente
@@ -110,11 +109,7 @@ Static Function ArquivosZ01( cOperacao )
 	ElseIf cOperacao == "LER"
 
 		If cCliDir != ""
-			If !ExistDir( cCliDir )
-				MakeDir( cCliDir )
-			EndIf
-			FWMsgRun(, {|| CpyS2T( cSrvDir + cValToChar(Z01->Z01_NUM) + '\' + AllTrim(TabTmp1->NOME) , cCliDir ) }, cCadastro, Capital("Baixando arquivo " + cFileExt + "...") )
-			FRename( cCliDir + cValToChar(Z01->Z01_NUM) + '\' + AllTrim(TabTmp1->NOME), cCliDir + AllTrim(TabTmp1->NOME) )
+			FWMsgRun(, {|| CpyS2T( cSrvDir + cValToChar(Z01->Z01_NUM) + '\' + AllTrim(TabTmp1->NOME) , cCliDir ) }, cCadastro, Capital("Baixando arquivo " + AllTrim(TabTmp1->NOME) + "...") )
 			MsgAlert("Arquivo baixado com sucesso! Caminho: " + cCliDir + AllTrim(TabTmp1->NOME) )
 			winexec("explorer.exe " + cCliDir + AllTrim(TabTmp1->NOME) )
 		EndIf
@@ -124,7 +119,7 @@ Static Function ArquivosZ01( cOperacao )
 		If AllTrim(TabTmp1->NOME) != ""
 			If MsgYesNo("Após a exclusão não será possível recuperar o arquivo. Deseja continuar?")
 				//Usar a função FErase(caminho do arquivo no servidor)
-				FErase( cSrvDir + cValToChar(Z01->Z01_NUM) + '¬' + AllTrim(TabTmp1->NOME) )
+				FErase( cSrvDir + cValToChar(Z01->Z01_NUM) + '\' + AllTrim(TabTmp1->NOME) )
 			EndIf
 		Else 
 			MsgAlert("Nenhum arquivo foi selecionado")
@@ -140,7 +135,7 @@ Return
 
 
 // *************************************************************
-// -------- Função para listagem de arquivos anexados ----------
+// ------ Função para estruturação de tabela temporária --------
 // *************************************************************
 Static Function GA011TabTmp( oSay )
 
@@ -230,7 +225,7 @@ Return
 
 
 // *************************************************************
-// -------- Função para listagem de arquivos anexados ----------
+// ---------- Função para busca de arquivos anexados -----------
 // *************************************************************
 Static Function GA011Busca()
 
