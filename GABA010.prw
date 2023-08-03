@@ -20,6 +20,7 @@ User Function GABA010()
 							{ 'Incluir'				, 'U_GA010Con(3)'	, 0, 3 } ,; 
 							{ 'Alterar'				, 'U_GA010Con(4)'	, 0, 4 } ,; 
 							{ 'Excluir'				, 'U_GA010Con(5)'	, 0, 5 } ,;
+                            { 'Arq Anexos'		    , 'U_GABA011()'     , 0, 2 } ,;
 							{ 'Legenda'				, 'U_GA010LEG()'	, 0, 6 } }
 
     // Validação - Usuário tem que ser administrador (antes de entrar na tela principal)
@@ -84,9 +85,9 @@ User Function GA010Con( nOpc )
     EndIf
     
     // Controle de numeração
-    If nOpcRet == 1  //Caso seja OK o retorno
+    If nOpcRet == 1  //Caso seja OK o retorno, confirmar o uso da numeração
         ConfirmSX8()
-    ElseIf nOpcRet == 3
+    ElseIf nOpcRet == 3  //Caso seja Cancelar o retorno, fazer o rollback do uso da numeração
         RollbackSX8()
     EndIf
 
